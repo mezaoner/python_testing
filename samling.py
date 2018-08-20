@@ -139,4 +139,60 @@ def covers(topic):
         if value & topic:
             output.append(key)
     return output
-    
+
+COURSES = {
+    "Python Basics": {"Python", "functions", "variables",
+                      "booleans", "integers", "floats",
+                      "arrays", "strings", "exceptions",
+                      "conditions", "input", "loops"},
+    "Java Basics": {"Java", "strings", "variables",
+                    "input", "exceptions", "integers",
+                    "booleans", "loops"},
+    "PHP Basics": {"PHP", "variables", "conditions",
+                   "integers", "floats", "strings",
+                   "booleans", "HTML"},
+    "Ruby Basics": {"Ruby", "strings", "floats",
+                    "integers", "conditions",
+                    "functions", "input"}
+}
+
+def covers(topic):
+    output = []
+    for key,value in COURSES.items():
+        if value & topic:
+            output.append(key)
+    return output
+def covers_all(topic):
+    output = []
+    #key equals course names, value equals topics
+    for key,value in COURSES.items():
+        if topic <= value:
+            output.append(key)
+    return output
+
+TILES = ('-', ' ', '-', ' ', '-', '||',
+         '_', '|', '_', '|', '_', '|', '||',
+         '&', ' ', '_', ' ', '||',
+         ' ', ' ', ' ', '^', ' ', '||'
+)
+box = []
+for item in TILES:
+    if item == "||":
+        print("{}".format("".join(box)))
+        box = []
+    else:
+        box.append(item)
+
+class RaceCar:
+
+
+    def __init__(self, color, fuel_remaining, **kwargs):
+        self.laps = 0
+        self.color = color
+        self.fuel_remaining = fuel_remaining
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+
+    def run_lap(self, length):
+        self.fuel_remaining -= (length * 0.125)
+        self.laps += 1
