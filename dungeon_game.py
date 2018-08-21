@@ -25,13 +25,17 @@ CELLS = [(0, 0), (1, 0), (2, 0),(3, 0), (4, 0),
          (0, 3), (1, 3), (2, 3), (3, 3), (4, 3),
          (0, 4), (1, 4), (2, 4), (3, 4), (4, 4)
          ]
+
+
 def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
-def get_locations():
-    return random.sample(CELLS,3)
 
-def move_player(player,move):
+def get_locations():
+    return random.sample(CELLS, 3)
+
+
+def move_player(player, move):
     x, y = player
     if move == "left":
         x -= 1
@@ -42,6 +46,7 @@ def move_player(player,move):
     if move == "down":
         y += 1
     return x, y
+
 
 def get_moves(player):
     moves = ["left", "right", "up", "down"]

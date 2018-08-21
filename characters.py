@@ -1,23 +1,12 @@
-import random
-
 
 class Character:
-    def __init__(self, name, **kwargs):
+    def __init__(self, name="", **kwargs):
+        if not name:
+            raise ValueError("'Name' is required")
         self.name = name
         for key, value in kwargs.items():
             setattr(self, key, value)
 
+    def __str__(self):
+        return "{}: {}".format(self.__class__.__name__, self.name)
 
-class Pirate(Character):
-    sneaky = True
-
-    def __init__(self, name, sneaky=True, **kwargs):
-        super().__init__(name, **kwargs)
-        self.sneaky = sneaky
-
-
-    def pickpocket(self):
-        return self.sneaky and (random.randint(0, 1))
-
-    def hide(self,light_level):
-        return self.sneaky and light_level < 10
