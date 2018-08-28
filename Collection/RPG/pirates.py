@@ -1,7 +1,7 @@
 import random
 
-from attributes import Agile, Sneaky
-from characters import Character
+from Collection.RPG.attributes import Agile, Sneaky
+from Collection.RPG.characters import Character
 
 
 class Pirate(Agile, Sneaky, Character):

@@ -1,4 +1,4 @@
-from pirates import Pirate
+from Collection.RPG.pirates import Pirate
 
 martin = Pirate(name="Martin", sneaky=False)
 print(martin)

@@ -1,14 +1,29 @@
-class Letter:
-    def __init__(self, pattern=None):
-        self.pattern = pattern
 
-
-    def __str__(self):
-        output = ""
-        for attr in self.pattern:
-            if attr == ".":
-                output += "dot"
-            if attr == "_":
-                output += "dash"
-            output += "-"
-        return output[:-1]
+altiensmell = {"GAP_SEC_O01": {"environment": "local",
+                               "sec_auth_001": {"result": "PASS"
+                                                },
+                                "sec_auth_002": {"result": "SKIP",
+                                                 "reason": "Unstable",
+                                                 },
+                                "sec_auth_003": {"result": "PASS",
+                                                 "debug": "Auth on 2nd attempt",
+                                                 },
+                                "sec_auth_004": {"result": "PASS",
+                                                 },
+                                },
+            "GAP_CONN_001": {"environment": "local",
+                             "debug": "Test suite start",
+                            "conn_bv_001": {"result": "PASS",
+                                            "debug": "Run 2 sequences"},
+                            "conn_bv_002": {"result": "FAIL"},
+                            "conn_bv_002": {"result2": "PASS"},
+                            "conn_bv_004": {"result": "SKIP",
+                                            "reason": "No pass criteria"
+                                            },
+                            },
+            "GAP_RSSI_001": {"environment": "local",
+                             "gap_rssi_001": {"result": "PASS"},
+                             "gap_rssi_002": {"result": "FAIL",
+                                              "reason": "RX 10 dBm"},
+                            },
+            }
